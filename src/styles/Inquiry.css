@@ -1,0 +1,162 @@
+/* src/styles/Inquiry.css */
+.inquiry-page {
+    background-color: var(--bg);
+    min-height: 100vh;
+}
+
+.inquiry-hero {
+    background-color: var(--primary);
+    color: var(--white);
+    padding: 160px 0 100px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.inquiry-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at center, rgba(37, 99, 235, 0.15) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.inquiry-hero h1 {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    font-weight: 700;
+    font-family: 'Outfit', sans-serif;
+    text-transform: uppercase;
+}
+
+.inquiry-hero p {
+    font-size: 1.25rem;
+    color: rgba(255, 255, 255, 0.9);
+    max-width: 800px;
+    margin: 0 auto;
+    font-weight: 500;
+}
+
+.inquiry-content {
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+}
+
+.contact-methods {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: -60px;
+    position: relative;
+    z-index: 10;
+}
+
+.contact-card {
+    background: var(--white);
+    padding: 40px 30px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.contact-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.contact-icon {
+    color: var(--secondary);
+    margin-bottom: 20px;
+}
+
+.contact-card h3 {
+    font-size: 1.5rem;
+    color: var(--primary);
+    margin-bottom: 10px;
+}
+
+.contact-card p {
+    font-size: 1.1rem;
+    color: #4b5563;
+    margin: 0;
+}
+
+.contact-card strong {
+    color: var(--primary);
+    font-weight: 600;
+}
+
+.offices-section {
+    text-align: center;
+    padding-bottom: 60px;
+}
+
+.offices-section h2 {
+    font-size: 2.5rem;
+    color: var(--primary);
+    margin-bottom: 40px;
+    font-family: 'Outfit', sans-serif;
+    text-transform: uppercase;
+}
+
+.offices-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.office-card {
+    background: var(--bg);
+    padding: 30px;
+    border-radius: 12px;
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    text-align: left;
+    transition: all 0.3s ease;
+}
+
+.office-card:hover {
+    border-color: var(--secondary);
+    background: white;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.office-icon {
+    color: var(--secondary);
+    flex-shrink: 0;
+    margin-top: 5px;
+}
+
+.office-card h4 {
+    font-size: 1.25rem;
+    color: var(--primary);
+    margin: 0 0 5px 0;
+}
+
+.office-card p {
+    color: #4b5563;
+    margin: 0;
+    font-size: 1.1rem;
+}
+
+@media (max-width: 768px) {
+    .inquiry-hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .contact-methods {
+        margin-top: 0;
+    }
+
+    .inquiry-hero {
+        padding: 120px 0 60px;
+    }
+}

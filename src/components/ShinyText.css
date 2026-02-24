@@ -1,0 +1,6 @@
+/* src/components/ShinyText.css */
+.shiny-text {
+    display: inline-block;
+    line-height: inherit;
+    font-family: inherit;
+}
