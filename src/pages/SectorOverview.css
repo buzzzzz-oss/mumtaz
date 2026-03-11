@@ -1,6 +1,6 @@
 .sector-overview-page {
     min-height: 100vh;
-    background-color: var(--color-background);
+    background-color: var(--bg);
 }
 
 .sector-hero {
@@ -13,7 +13,7 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    color: var(--color-white);
+    color: var(--white);
     margin-top: 80px;
     /* offset for fixed navbar */
 }
@@ -40,7 +40,7 @@
     font-size: 3.5rem;
     font-weight: 700;
     margin-bottom: 0.8rem;
-    color: var(--color-gold);
+    color: var(--secondary);
     text-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
 }
 
@@ -63,14 +63,14 @@
 }
 
 .main-details h2 {
-    color: var(--color-primary);
+    color: var(--primary);
     font-size: 2.2rem;
     margin-bottom: 1.5rem;
     font-weight: 700;
 }
 
 .main-details h3 {
-    color: var(--color-primary);
+    color: var(--primary);
     font-size: 1.6rem;
     margin: 2.5rem 0 1.2rem;
     font-weight: 600;
@@ -79,13 +79,13 @@
 .lead-text {
     font-size: 1.2rem;
     line-height: 1.8;
-    color: var(--color-text);
+    color: var(--text);
     margin-bottom: 2.5rem;
 }
 
 .main-details p {
     line-height: 1.8;
-    color: var(--color-text);
+    color: var(--text);
     margin-bottom: 1.2rem;
     font-size: 1.05rem;
 }
@@ -93,7 +93,7 @@
 .focus-list {
     list-style: none;
     padding: 0;
-    background: var(--color-white);
+    background: var(--white);
     padding: 2rem;
     border-radius: 12px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
@@ -105,7 +105,7 @@
     padding-left: 2.5rem;
     margin-bottom: 1.2rem;
     font-size: 1.1rem;
-    color: var(--color-primary);
+    color: var(--primary);
     font-weight: 500;
 }
 
@@ -118,7 +118,7 @@
     position: absolute;
     left: 0;
     top: -2px;
-    color: var(--color-gold);
+    color: var(--secondary);
     font-weight: bold;
     font-size: 1.2rem;
     background: rgba(197, 168, 128, 0.1);
@@ -136,12 +136,12 @@
 }
 
 .cta-card {
-    background: var(--color-white);
+    background: var(--white);
     padding: 3rem 2rem;
     border-radius: 16px;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
     text-align: center;
-    border-top: 5px solid var(--color-gold);
+    border-top: 5px solid var(--secondary);
     transition: transform 0.3s ease;
 }
 
@@ -150,14 +150,14 @@
 }
 
 .cta-card h3 {
-    color: var(--color-primary);
+    color: var(--primary);
     font-size: 1.5rem;
     margin-bottom: 1.2rem;
     font-weight: 700;
 }
 
 .cta-card p {
-    color: var(--color-text);
+    color: var(--text);
     margin-bottom: 2.5rem;
     line-height: 1.7;
     font-size: 1.05rem;

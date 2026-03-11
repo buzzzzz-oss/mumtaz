@@ -211,8 +211,36 @@
     stroke-linecap: round;
     filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.8));
     /* The trail animation */
-    stroke-dasharray: 2000;
-    stroke-dashoffset: 0;
+    stroke-dasharray: 200;
+    stroke-dashoffset: 200;
+}
+
+.animate-line-1 {
+    animation: drawCurve1 1.5s ease-in-out forwards;
+}
+
+.animate-line-2 {
+    animation: drawCurve2 1s ease-in-out forwards;
+    animation-delay: 0.5s;
+    opacity: 0;
+    /* Hide initially until delay is over */
+}
+
+@keyframes drawCurve1 {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes drawCurve2 {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        stroke-dashoffset: 0;
+        opacity: 1;
+    }
 }
 
 /* Responsive adjustments */

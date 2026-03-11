@@ -152,23 +152,23 @@
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
     .workforce-stats-section {
-        min-height: 600px;
+        min-height: auto; 
     }
 
     .silhouettes-wrapper {
-        height: 50%;
-        bottom: -5%;
+        position: relative;
+        height: 300px;
+        bottom: 0;
+        margin-top: 40px;
     }
 
-    /* Make the images fit narrower screens better */
     .silhouette-layer {
-        width: 250%;
-        /* Stretch them wider on mobile to ensure coverage */
+        width: 150%;
     }
 
     .workforce-content {
-        padding-bottom: 80px;
-        /* Lift text slightly more on small screens */
+        padding-top: 60px;
+        padding-bottom: 0px;
     }
 }
 
@@ -252,16 +252,27 @@
 @media (max-width: 768px) {
     .workforce-stats-bar {
         grid-template-columns: 1fr;
+        padding: 0 20px;
     }
 
     .workforce-stats-bar-wrapper {
         position: relative;
-        margin-top: 40px;
+        bottom: auto;
+        padding-bottom: 40px;
+        background-color: #000c14; /* Match background */
     }
 
     .workforce-stats-section {
-        min-height: auto;
-        padding-bottom: 40px;
         height: auto;
+        display: block; /* Remove flex centering to enable scrolling */
+    }
+    
+    .workforce-container {
+        height: auto;
+        display: block; 
+    }
+
+    .workforce-stat-card {
+        margin-bottom: 20px;
     }
 }

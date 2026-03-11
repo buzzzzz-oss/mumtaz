@@ -79,9 +79,15 @@ const Scrollytelling = () => {
             offsetX = (canvasWidth - drawWidth) / 2;
         }
 
-        // Apply scale to make the map occupy ~30% of screen width visually 
-        // We do this by scaling down the drawing and centering it
-        const scale = 0.45; // ~30-40% visual size
+        // Apply scale. Desktop: ~45% visual size. Mobile: Force fit to screen width.
+        let scale = 0.45;
+        if (window.innerWidth <= 768) {
+            // Guarantee the image fits 95% of the screen width on portrait mobile
+            scale = (canvasWidth * 0.95) / drawWidth;
+        } else if (window.innerWidth <= 1024) {
+             scale = 0.6; // Slightly larger for tablets
+        }
+        
         const scaledWidth = drawWidth * scale;
         const scaledHeight = drawHeight * scale;
 
@@ -190,10 +196,9 @@ const Scrollytelling = () => {
             style={{
                 height: `${SCROLL_DISTANCE}vh`,
                 position: 'relative',
-                backgroundColor: '#000611', // Very dark navy matching image sequence
+                background: 'radial-gradient(circle at center, #0B2B50 0%, #011026 50%, #000611 100%)', // Center glow fading to navy
                 zIndex: 2,
-                width: '100%',
-                overflow: 'hidden'
+                width: '100%'
             }}
         >
             <div
@@ -209,19 +214,34 @@ const Scrollytelling = () => {
                     overflow: 'hidden',
                 }}
             >
-                {/* Background Decor: Animated Subtle Quote */}
-                <div className="bg-quote">
-                    Serving Across the Emirates
-                </div>
 
-                {/* Background Decor: Subtle Glowing UAE Outline mapping the same canvas size but low opacity */}
-                <div className="bg-map-outline" style={{ opacity: progress > 0.1 ? 1 : 0 }}>
-                    <img src="/sequence/ezgif-frame-192.jpg" alt="UAE Map Outline" />
-                </div>
 
-                {/* Centered Heading */}
-                <div className="map-heading-container" style={{ opacity: progress > 0.1 ? 1 : 0 }}>
-                    <h2>Operating Across the Emirates</h2>
+                {/* Fading Golden Headline */}
+                <div 
+                    className="scrolly-headline"
+                    style={{
+                        position: 'absolute',
+                        top: '10%',
+                        left: 0,
+                        width: '100%',
+                        textAlign: 'center',
+                        zIndex: 30,
+                        opacity: progress > 0.1 ? 1 : 0,
+                        transform: `translateY(${progress > 0.1 ? 0 : 20}px)`,
+                        transition: 'opacity 0.8s ease-out, transform 0.8s ease-out',
+                        pointerEvents: 'none'
+                    }}
+                >
+                    <h2 style={{
+                        color: 'var(--secondary, #d4af37)',
+                        fontSize: '2.5rem',
+                        fontWeight: '700',
+                        textTransform: 'uppercase',
+                        letterSpacing: '3px',
+                        textShadow: '0 4px 15px rgba(0, 0, 0, 0.8)',
+                    }}>
+                        We Serve Across the Emirates
+                    </h2>
                 </div>
 
                 {/* Main Animation Container - Centered */}
@@ -234,89 +254,10 @@ const Scrollytelling = () => {
                             height: '100%',
                             display: 'block',
                             position: 'relative',
-                            zIndex: 10
+                            zIndex: 10,
+                            boxShadow: '0 0 80px 30px rgba(0, 50, 100, 0.4)' // Map edge glow blending
                         }}
                     />
-
-                    {/* Overlay elements strictly positioned relative to the centered map container */}
-                    <div className="map-overlay-layer">
-
-                        {/* Abu Dhabi Pin */}
-                        <AnimatePresence>
-                            {abuDhabiVisible && (
-                                <motion.div
-                                    className="map-pin pin-abudhabi"
-                                    initial={{ scale: 0, opacity: 0 }}
-                                    animate={{ scale: 1, opacity: 1 }}
-                                    exit={{ scale: 0, opacity: 0 }}
-                                    transition={{ type: "spring", stiffness: 200, damping: 15 }}
-                                >
-                                    <div className="pin-pulse"></div>
-                                    <div className="pin-dot"></div>
-                                    <span className="pin-label">Abu Dhabi</span>
-                                </motion.div>
-                            )}
-                        </AnimatePresence>
-
-                        {/* Dubai Pin */}
-                        <AnimatePresence>
-                            {dubaiVisible && (
-                                <motion.div
-                                    className="map-pin pin-dubai"
-                                    initial={{ scale: 0, opacity: 0 }}
-                                    animate={{ scale: 1, opacity: 1 }}
-                                    exit={{ scale: 0, opacity: 0 }}
-                                    transition={{ type: "spring", stiffness: 200, damping: 15 }}
-                                >
-                                    <div className="pin-pulse"></div>
-                                    <div className="pin-dot"></div>
-                                    <span className="pin-label">Dubai</span>
-                                </motion.div>
-                            )}
-                        </AnimatePresence>
-
-                        {/* Sharjah Pin */}
-                        <AnimatePresence>
-                            {sharjahVisible && (
-                                <motion.div
-                                    className="map-pin pin-sharjah"
-                                    initial={{ scale: 0, opacity: 0 }}
-                                    animate={{ scale: 1, opacity: 1 }}
-                                    exit={{ scale: 0, opacity: 0 }}
-                                    transition={{ type: "spring", stiffness: 200, damping: 15 }}
-                                >
-                                    <div className="pin-pulse"></div>
-                                    <div className="pin-dot"></div>
-                                    <span className="pin-label">Sharjah</span>
-                                </motion.div>
-                            )}
-                        </AnimatePresence>
-
-                        {/* Connection Lines */}
-                        <AnimatePresence>
-                            {linesVisible && (
-                                <svg className="map-lines-svg">
-                                    {/* Abu Dhabi to Dubai curve */}
-                                    <motion.path
-                                        d="M 28% 68% Q 40% 40% 58% 52%"
-                                        className="connection-line"
-                                        initial={{ pathLength: 0, opacity: 0 }}
-                                        animate={{ pathLength: 1, opacity: 1 }}
-                                        transition={{ duration: 1.5, ease: "easeInOut" }}
-                                    />
-                                    {/* Dubai to Sharjah curve */}
-                                    <motion.path
-                                        d="M 58% 52% Q 65% 42% 70% 32%"
-                                        className="connection-line"
-                                        initial={{ pathLength: 0, opacity: 0 }}
-                                        animate={{ pathLength: 1, opacity: 1 }}
-                                        transition={{ duration: 1, ease: "easeInOut", delay: 0.5 }}
-                                    />
-                                </svg>
-                            )}
-                        </AnimatePresence>
-
-                    </div>
                 </div>
             </div>
         </section>

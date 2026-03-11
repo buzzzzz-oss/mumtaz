@@ -57,14 +57,14 @@ const Home = () => {
             desc: "Premium janitorial, deep cleaning, and hospitality support staff maintaining pristine corporate environments.",
             icon: <Users size={32} />,
             img: cleaningImage,
-            link: "/cleaning-crew"
+            link: "/people-solutions"
         },
         {
             title: "Environmental Solutions",
             desc: "Advanced commercial and residential pest eradication utilizing eco-friendly, ISO-compliant methodologies.",
             icon: <Leaf size={32} />,
             img: pestImage,
-            link: "/pest-control"
+            link: "/environmental-solutions"
         }
     ];
 

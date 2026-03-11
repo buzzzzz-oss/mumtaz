@@ -84,19 +84,22 @@
 
 .division-title {
     color: #ffffff;
-    font-family: 'Inter', sans-serif;
-    font-weight: 700;
-    font-size: clamp(1.8rem, 3vw, 2.8rem);
-    letter-spacing: -0.5px;
+    font-family: var(--font-headline);
+    font-weight: normal;
+    font-size: clamp(2.2rem, 3.5vw, 3.2rem);
+    letter-spacing: 0px;
     margin-bottom: 20px;
     transition: transform 0.6s cubic-bezier(0.25, 1, 0.25, 1);
     text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    white-space: pre-line;
+    line-height: 1.2;
 }
 
 .division-desc {
-    color: rgba(255, 255, 255, 0.7);
-    font-family: 'Inter', sans-serif;
-    font-size: clamp(1rem, 1.2vw, 1.2rem);
+    color: rgba(255, 255, 255, 0.9);
+    font-family: var(--font-secondary);
+    font-weight: 500;
+    font-size: clamp(1rem, 1.2vw, 1.1rem);
     line-height: 1.6;
     margin: 0;
     opacity: 0;
@@ -132,8 +135,8 @@
     /* Optional premium blur */
     -webkit-backdrop-filter: blur(8px);
     color: #ffffff;
-    font-family: 'Inter', sans-serif;
-    font-weight: 700;
+    font-family: var(--font-secondary);
+    font-weight: 600;
     font-size: 0.9rem;
     letter-spacing: 3px;
     text-decoration: none;
@@ -320,8 +323,13 @@
     }
 
     .division-panel {
-        height: 33.33vh;
-        min-height: 300px;
+        height: auto;
+        min-height: 380px;
+        padding: 40px 0;
+    }
+
+    .panel-content {
+        padding: 0 20px;
     }
 
     /* Disable the flex hover trick on mobile */
@@ -333,6 +341,10 @@
         flex: 1;
     }
 
+    .division-panel:hover .division-title {
+        transform: translateY(0);
+    }
+
     /* Always show description on mobile since hover doesn't exist */
     .division-desc {
         opacity: 0.8;
@@ -342,6 +354,7 @@
 
     .division-title {
         color: #2ed573;
+        font-size: clamp(1.8rem, 8vw, 2.5rem);
     }
 
     .division-explore-btn {

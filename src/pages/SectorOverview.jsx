@@ -23,7 +23,7 @@ const SectorOverview = () => {
             <div className="sector-overview-page">
                 <div className="container" style={{ padding: '150px 0', textAlign: 'center' }}>
                     <h2>Sector not found</h2>
-                    <p style={{ marginTop: '1rem', color: 'var(--color-text)' }}>The sector you are looking for does not exist.</p>
+                    <p style={{ marginTop: '1rem', color: 'var(--text)' }}>The sector you are looking for does not exist.</p>
                     <Link to="/sectors" className="btn-primary" style={{ marginTop: '20px', display: 'inline-block' }}>Back to Sectors</Link>
                 </div>
             </div>

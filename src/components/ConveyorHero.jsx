@@ -115,15 +115,17 @@ const ConveyorHero = () => {
                     >
                         <motion.h2
                             style={{
-                                fontSize: 'clamp(2.5rem, 5vw, 6rem)',
+                                fontSize: 'clamp(2rem, 5vw, 6rem)',
                                 fontWeight: 900,
                                 color: '#000',
                                 textTransform: 'uppercase',
-                                lineHeight: 1,
+                                lineHeight: 1.1,
                                 textAlign: 'center',
                                 margin: 0,
                                 fontFamily: 'var(--font-headline, sans-serif)',
-                                whiteSpace: 'nowrap'
+                                whiteSpace: 'normal',
+                                wordBreak: 'keep-all',
+                                padding: '0 15px'
                             }}
                             initial={{ opacity: 0, y: 50 }}
                             animate={{ opacity: currentIndex === 0 ? 1 : 0, y: currentIndex === 0 ? 0 : 50 }}

@@ -18,7 +18,7 @@ const divisions = [
     },
     {
         id: 'cleaning',
-        title: 'Cleaning Services',
+        title: 'Cleaning\nServices',
         description: 'Professional deep cleaning and hygiene solutions for villas, offices and facilities.',
         cssClass: 'panel-cleaning',
         bgImage: cleaningImage,
@@ -26,7 +26,7 @@ const divisions = [
     },
     {
         id: 'facilities',
-        title: 'Facilities Management',
+        title: 'Facilities\nManagement',
         description: 'Comprehensive manpower and facility support services across the UAE.',
         cssClass: 'panel-facilities',
         bgImage: facilitiesImage,
