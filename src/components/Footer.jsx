@@ -10,7 +10,6 @@ const Footer = () => {
                 <div className="footer-info">
                     <Link to="/" className="logo">
                         <span className="logo-main">MUMTAZ</span>
-                        <span className="logo-sub">SERVICES GROUP</span>
                     </Link>
                     <p className="footer-desc">
                         Your trusted partner in the UAE for Facilities Management, Pest Control, and Cleaning services. Committed to excellence and sustainability.

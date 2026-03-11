@@ -1,17 +1,23 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=El+Messiri:wght@400;500;600;700&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap');
+@import url('https://fonts.cdnfonts.com/css/seasons');
+@import url('https://db.onlinewebfonts.com/c/f7d34c9e4c3102c89048d775c27a78f3?family=The+Seasons+Bold');
 
 :root {
-  --primary: #002147;
-  --primary-light: #003a7d;
-  --secondary: #D4AF37;
-  --secondary-light: #f1c40f;
-  --accent: #0056b3;
-  --text: #1a1a1a;
-  --text-muted: #666666;
-  --bg: #F8F9FA;
+  --font-main: 'Seasons', 'The Seasons', 'El Messiri', serif;
+  --font-secondary: 'Poppins', 'El Messiri', sans-serif;
+  --font-headline: 'The Seasons Bold', 'Seasons', 'The Seasons', 'El Messiri', serif;
+
+  --primary: #0F172A;
+  --primary-light: #1E293B;
+  --secondary: #C9AD6A;
+  --secondary-light: #DBC386;
+  --accent: #5C769A;
+  --text: #0F172A;
+  --text-muted: #64748B;
+  --bg: #FFFFFF;
   --white: #FFFFFF;
-  --glass: rgba(255, 255, 255, 0.8);
-  --glass-border: rgba(255, 255, 255, 0.2);
+  --glass: rgba(15, 23, 42, 0.8);
+  --glass-border: rgba(255, 255, 255, 0.1);
   --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -23,17 +29,25 @@
 }
 
 body {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-secondary);
+  font-weight: 500;
+  /* Poppins Medium as requested */
   background-color: var(--bg);
   color: var(--text);
   line-height: 1.6;
   overflow-x: hidden;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Outfit', sans-serif;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-headline);
   color: var(--primary);
-  font-weight: 700;
+  font-weight: normal;
+  /* 'The Seasons Bold' is already bold */
 }
 
 a {
@@ -115,6 +129,7 @@ ul {
     opacity: 0;
     transform: translateY(30px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);

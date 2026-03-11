@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { Shield, Settings, Zap, Droplets, HardHat, PenTool, CheckCircle, ArrowRight } from 'lucide-react';
 import '../styles/DivisionPage.css';
+import imgHero from '../assets/001_transparent.png';
 
 const FacilityManagement = () => {
     useEffect(() => {
@@ -48,7 +49,7 @@ const FacilityManagement = () => {
                         </div>
                     </div>
                     <div className="intro-image">
-                        <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&q=80&w=800" alt="Technical Maintenance" />
+                        <img src={imgHero} alt="Technical Maintenance" />
                     </div>
                 </div>
             </section>

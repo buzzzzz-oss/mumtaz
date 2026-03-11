@@ -1,0 +1,263 @@
+/* Scrollytelling Map Animation Styles */
+
+.scrollytelling-section {
+    color: white;
+    font-family: 'Inter', sans-serif;
+}
+
+.scrollytelling-sticky {
+    position: relative;
+    z-index: 10;
+}
+
+/* Background Animated Quote */
+.bg-quote {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    white-space: nowrap;
+    font-size: 15vw;
+    font-weight: 900;
+    color: white;
+    opacity: 0.08;
+    filter: blur(4px);
+    z-index: 1;
+    pointer-events: none;
+    animation: slideQuote 40s linear infinite;
+    text-transform: uppercase;
+    letter-spacing: -2px;
+}
+
+@keyframes slideQuote {
+    0% {
+        transform: translate(100%, -50%);
+    }
+
+    100% {
+        transform: translate(-100%, -50%);
+    }
+}
+
+/* Background UAE Outline Glow */
+.bg-map-outline {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 45%;
+    /* slightly larger than main map */
+    z-index: 2;
+    pointer-events: none;
+    transition: opacity 1s ease;
+    mix-blend-mode: screen;
+}
+
+.bg-map-outline img {
+    width: 100%;
+    height: auto;
+    filter: drop-shadow(0 0 15px rgba(0, 255, 255, 0.5)) sepia(1) hue-rotate(150deg) saturate(3) brightness(1.2);
+    /* Creates the cyan glow from a white image */
+    opacity: 0.12;
+    animation: pulseOutline 4s ease-in-out infinite alternate;
+}
+
+@keyframes pulseOutline {
+    0% {
+        opacity: 0.08;
+        filter: drop-shadow(0 0 10px rgba(0, 255, 255, 0.3)) sepia(1) hue-rotate(150deg) saturate(3) brightness(1);
+    }
+
+    100% {
+        opacity: 0.15;
+        filter: drop-shadow(0 0 25px rgba(0, 255, 255, 0.7)) sepia(1) hue-rotate(150deg) saturate(3) brightness(1.5);
+    }
+}
+
+/* Map Heading */
+.map-heading-container {
+    position: absolute;
+    top: 15%;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    z-index: 20;
+    transition: opacity 1s ease;
+}
+
+.map-heading-container h2 {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--secondary, #d4af37);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 0 4px 15px rgba(0, 0, 0, 0.8);
+}
+
+/* Main Map Animation Container */
+.map-animation-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+}
+
+.scrollytelling-canvas {
+    filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.5));
+}
+
+.map-overlay-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 20;
+}
+
+/* Map Pins */
+.map-pin {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* Adjust translate to center the pin exactly on coordinate */
+    transform: translate(-50%, -50%);
+}
+
+/* Rough coordinates for 45% scaled map centered in viewport */
+.pin-abudhabi {
+    top: 68%;
+    left: 28%;
+}
+
+.pin-dubai {
+    top: 52%;
+    left: 58%;
+}
+
+.pin-sharjah {
+    top: 42%;
+    left: 65%;
+}
+
+.pin-dot {
+    width: 12px;
+    height: 12px;
+    background-color: #10b981;
+    /* Green */
+    border-radius: 50%;
+    box-shadow: 0 0 15px 5px rgba(16, 185, 129, 0.6);
+    position: relative;
+    z-index: 2;
+}
+
+.pin-pulse {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30px;
+    height: 30px;
+    background-color: rgba(16, 185, 129, 0.4);
+    border-radius: 50%;
+    z-index: 1;
+    animation: pinPulse 2s infinite cubic-bezier(0.4, 0, 0.6, 1);
+}
+
+@keyframes pinPulse {
+    0% {
+        transform: translate(-50%, -50%) scale(0.8);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translate(-50%, -50%) scale(2.5);
+        opacity: 0;
+    }
+}
+
+.pin-label {
+    margin-top: 15px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: white;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.8);
+    background: rgba(0, 0, 0, 0.4);
+    padding: 4px 12px;
+    border-radius: 20px;
+    backdrop-filter: blur(4px);
+}
+
+/* Connection Lines */
+.map-lines-svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 15;
+}
+
+.connection-line {
+    fill: none;
+    stroke: rgba(255, 255, 255, 0.6);
+    stroke-width: 3;
+    stroke-linecap: round;
+    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.8));
+    /* The trail animation */
+    stroke-dasharray: 2000;
+    stroke-dashoffset: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+    .bg-map-outline {
+        width: 70%;
+    }
+
+    .map-heading-container h2 {
+        font-size: 2.2rem;
+    }
+
+    .pin-label {
+        font-size: 1rem;
+    }
+
+    /* Adjust pins for different aspect ratios if map moves relative to viewport */
+}
+
+@media (max-width: 768px) {
+    .bg-map-outline {
+        width: 90%;
+    }
+
+    .map-heading-container h2 {
+        font-size: 1.8rem;
+    }
+
+    .pin-abudhabi {
+        top: 65%;
+        left: 20%;
+    }
+
+    .pin-dubai {
+        top: 50%;
+        left: 55%;
+    }
+
+    .pin-sharjah {
+        top: 40%;
+        left: 63%;
+    }
+
+    .pin-label {
+        font-size: 0.9rem;
+        margin-top: 10px;
+    }
+}

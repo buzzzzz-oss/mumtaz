@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { UserCheck, Sparkles, Coffee, Home, Building, Droplets, CheckCircle, Clock } from 'lucide-react';
-import introImage from '../assets/Whisk_c96d16f7084b58c90bc44d83354c553edr.jpeg';
+import introImage from '../assets/01_transparent.png';
 import '../styles/DivisionPage.css';
 
 const CleaningCrew = () => {

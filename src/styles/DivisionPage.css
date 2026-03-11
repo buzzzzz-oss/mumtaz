@@ -1,3 +1,8 @@
+.division-page {
+    background-color: var(--bg);
+    min-height: 100vh;
+}
+
 .division-page .page-hero {
     height: 50vh;
     display: flex;
@@ -36,16 +41,274 @@
 }
 
 /* Specific Heroes */
+.fm-page {
+    --primary: #36454F;
+    /* Charcoal Grey */
+    --secondary: #36454F;
+    /* Charcoal Grey */
+    --bg: #fffdf4;
+    /* Soft Ivory */
+    --white: #ffffff;
+    --text: #333333;
+
+    background-color: var(--bg);
+    color: var(--text);
+}
+
 .fm-page .page-hero {
     background-image: url('https://images.unsplash.com/photo-1541888946425-d81bb193005f?auto=format&fit=crop&q=80&w=1920');
+}
+
+.fm-page .page-hero::before {
+    background: rgba(54, 69, 79, 0.85);
+    /* Charcoal Grey overlay */
+}
+
+.fm-page .bg-light {
+    background-color: #ffffff;
+}
+
+.fm-page .service-item-card {
+    background-color: var(--bg);
+    border-color: rgba(54, 69, 79, 0.1);
+}
+
+.fm-page .service-icon {
+    color: #36454F;
+}
+
+.fm-page .intro-stats .stat h4 {
+    color: #36454F;
+}
+
+.fm-page .sector-tag {
+    background-color: var(--white);
+    color: #36454F;
+    border-color: rgba(54, 69, 79, 0.2);
+}
+
+.fm-page .sector-tag .icon {
+    color: #36454F;
+}
+
+.fm-page .btn-secondary {
+    background-color: var(--white);
+    color: #36454F;
+    border: 2px solid #36454F;
+}
+
+.fm-page .btn-secondary:hover {
+    background-color: #36454F;
+    color: var(--white);
+}
+
+.fm-page h1,
+.fm-page h2,
+.fm-page h3,
+.fm-page h4,
+.fm-page h5,
+.fm-page h6 {
+    color: #36454F;
+}
+
+.fm-page .page-hero h1,
+.fm-page .page-hero p {
+    color: var(--white);
+}
+
+.fm-page .cta-section {
+    background-color: #36454F;
+    color: var(--white);
+    padding: 80px 0;
+    text-align: center;
+}
+
+.fm-page .cta-section h2 {
+    color: var(--white);
+    margin-bottom: 20px;
+}
+
+.pc-page {
+    /* Pest Control Specific Palette */
+    --primary: #a6001d;
+    /* Crimson Shield */
+    --secondary: #a6001d;
+    /* Crimson Shield for accents too, to restrict palette */
+    --bg: #fffdf4;
+    /* Soft Ivory */
+    --white: #ffffff;
+    --text: #333333;
+
+    background-color: var(--bg);
+    color: var(--text);
 }
 
 .pc-page .page-hero {
     background-image: url('https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80&w=1920');
 }
 
+.pc-page .page-hero::before {
+    background: rgba(166, 0, 29, 0.85);
+    /* Crimson Shield overlay */
+}
+
+.pc-page .bg-light {
+    background-color: #ffffff;
+    /* White background for alternating sections */
+}
+
+.pc-page .service-item-card {
+    background-color: var(--bg);
+    /* Soft Ivory for cards on white bg */
+    border-color: rgba(166, 0, 29, 0.1);
+    /* Subtle crimson border */
+}
+
+.pc-page .service-icon {
+    color: #a6001d;
+    /* Crimson Shield */
+}
+
+.pc-page .intro-stats .stat h4 {
+    color: #a6001d;
+    /* Crimson Shield */
+}
+
+.pc-page .sector-tag {
+    background-color: var(--white);
+    color: #a6001d;
+    /* Crimson Shield text */
+    border-color: rgba(166, 0, 29, 0.2);
+}
+
+.pc-page .sector-tag .icon {
+    color: #a6001d;
+    /* Crimson Shield icon */
+}
+
+.pc-page .btn-secondary {
+    background-color: var(--white);
+    color: #a6001d;
+    border: 2px solid #a6001d;
+}
+
+.pc-page .btn-secondary:hover {
+    background-color: #a6001d;
+    color: var(--white);
+}
+
+/* Ensure headings use Crimson Shield */
+.pc-page h1,
+.pc-page h2,
+.pc-page h3,
+.pc-page h4,
+.pc-page h5,
+.pc-page h6 {
+    color: #a6001d;
+}
+
+.pc-page .page-hero h1,
+.pc-page .page-hero p {
+    color: var(--white);
+}
+
+.pc-page .cta-section {
+    background-color: #a6001d;
+    color: var(--white);
+    padding: 80px 0;
+    text-align: center;
+}
+
+.pc-page .cta-section h2 {
+    color: var(--white);
+    margin-bottom: 20px;
+}
+
+.cc-page {
+    --primary: #00643a;
+    /* Deep Emerald */
+    --secondary: #00643a;
+    /* Deep Emerald */
+    --bg: #fffdf4;
+    /* Soft Ivory */
+    --white: #ffffff;
+    --text: #333333;
+
+    background-color: var(--bg);
+    color: var(--text);
+}
+
 .cc-page .page-hero {
     background-image: url('https://images.unsplash.com/photo-1581578731548-c64695ce6958?auto=format&fit=crop&q=80&w=1920');
+}
+
+.cc-page .page-hero::before {
+    background: rgba(0, 100, 58, 0.85);
+    /* Deep Emerald overlay */
+}
+
+.cc-page .bg-light {
+    background-color: #ffffff;
+}
+
+.cc-page .service-item-card {
+    background-color: var(--bg);
+    border-color: rgba(0, 100, 58, 0.1);
+}
+
+.cc-page .service-icon {
+    color: #00643a;
+}
+
+.cc-page .intro-stats .stat h4 {
+    color: #00643a;
+}
+
+.cc-page .sector-tag {
+    background-color: var(--white);
+    color: #00643a;
+    border-color: rgba(0, 100, 58, 0.2);
+}
+
+.cc-page .sector-tag .icon {
+    color: #00643a;
+}
+
+.cc-page .btn-secondary {
+    background-color: var(--white);
+    color: #00643a;
+    border: 2px solid #00643a;
+}
+
+.cc-page .btn-secondary:hover {
+    background-color: #00643a;
+    color: var(--white);
+}
+
+.cc-page h1,
+.cc-page h2,
+.cc-page h3,
+.cc-page h4,
+.cc-page h5,
+.cc-page h6 {
+    color: #00643a;
+}
+
+.cc-page .page-hero h1,
+.cc-page .page-hero p {
+    color: var(--white);
+}
+
+.cc-page .cta-section {
+    background-color: #00643a;
+    color: var(--white);
+    padding: 80px 0;
+    text-align: center;
+}
+
+.cc-page .cta-section h2 {
+    color: var(--white);
+    margin-bottom: 20px;
 }
 
 /* Intro Grid */
@@ -86,12 +349,14 @@
 
 .intro-image img {
     width: 100%;
-    border-radius: 15px;
-    box-shadow: var(--shadow);
+    height: auto;
+    display: block;
+    transform: scale(1.2);
+    transform-origin: bottom center;
 }
 
 /* Services Grid */
-.bg-light {
+.division-page .bg-light {
     background-color: #f1f5f9;
 }
 

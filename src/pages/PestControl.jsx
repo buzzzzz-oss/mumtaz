@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { Droplets, Shield, Search, CheckCircle, Zap, Wind, Bug, AlertCircle } from 'lucide-react';
 import '../styles/DivisionPage.css';
+import imgPestControl from '../assets/0_transparent.png';
 
 const PestControl = () => {
     useEffect(() => {
@@ -27,7 +28,7 @@ const PestControl = () => {
                 </div>
             </section>
 
-            <section className="service-intro container section-padding">
+            <section className="service-intro container section-padding" style={{ backgroundColor: '#ffffff' }}>
                 <div className="intro-grid animate-on-scroll">
                     <div className="intro-text">
                         <h2>Your Shield Against Pests</h2>
@@ -48,7 +49,7 @@ const PestControl = () => {
                         </div>
                     </div>
                     <div className="intro-image">
-                        <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80&w=800" alt="Professional Pest Control" />
+                        <img src={imgPestControl} alt="Professional Pest Control" />
                     </div>
                 </div>
             </section>
@@ -71,7 +72,7 @@ const PestControl = () => {
                 </div>
             </section>
 
-            <section className="sectors-section container section-padding">
+            <section className="sectors-section container section-padding" style={{ backgroundColor: '#ffffff', padding: '60px' }}>
                 <div className="section-title animate-on-scroll">
                     <h2>Trust & Certifications</h2>
                 </div>

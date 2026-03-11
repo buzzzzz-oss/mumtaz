@@ -1,0 +1,267 @@
+/* src/styles/WorkforceStats.css */
+
+.workforce-stats-section {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    min-height: 800px;
+    background-color: #000c14;
+    /* Dark navy / deep charcoal consistent theme */
+    background: linear-gradient(135deg, #000810 0%, #001f3f 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.workforce-container {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+}
+
+/* Foreground Content */
+.workforce-content {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 50px;
+    /* Offset to sit above the silhouettes nicely */
+}
+
+/* Number Counter Styles */
+.counter-wrapper {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    color: #ffffff;
+    margin-bottom: 20px;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.counter-number {
+    font-size: clamp(6rem, 10vw, 12rem);
+    font-weight: 800;
+    font-family: 'Inter', sans-serif;
+    line-height: 1;
+    letter-spacing: -2px;
+}
+
+.counter-plus {
+    font-size: clamp(3rem, 5vw, 6rem);
+    font-weight: 700;
+    color: #2ed573;
+    /* Emerald accent */
+    margin-left: 5px;
+}
+
+/* Text Details Styles */
+.workforce-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.workforce-title {
+    color: #ffffff;
+    font-size: clamp(1.2rem, 2vw, 1.8rem);
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+.workforce-subtitle {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: clamp(1rem, 1.2vw, 1.2rem);
+    font-weight: 400;
+    margin: 0;
+}
+
+.workforce-highlight {
+    color: #2ed573;
+    font-size: clamp(0.9rem, 1vw, 1.1rem);
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+/* Layered Silhouettes Effect */
+.silhouettes-wrapper {
+    position: absolute;
+    bottom: -10%;
+    /* Slight offset to let them rise from bottom naturally */
+    left: 0;
+    width: 100%;
+    height: 60%;
+    /* Occupy lower half of screen */
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    pointer-events: none;
+    /* Let clicks pass through */
+    z-index: 1;
+    /* Below the text content */
+}
+
+.silhouette-layer {
+    position: absolute;
+    bottom: 0;
+    width: 150%;
+    /* Make them span wide */
+    max-width: 2000px;
+    object-fit: contain;
+    object-position: bottom center;
+    filter: grayscale(100%) contrast(1.2) drop-shadow(0 -10px 20px rgba(0, 0, 0, 0.5));
+}
+
+/* Specific adjustments for depth perception via CSS */
+.layer-3 {
+    width: 180%;
+    margin-bottom: 10vh;
+    /* Highest layer, pushed back */
+    filter: grayscale(100%) contrast(1.2) brightness(0.2) blur(3px);
+    /* Darker and blurred */
+}
+
+.layer-2 {
+    width: 160%;
+    margin-bottom: 5vh;
+    filter: grayscale(100%) contrast(1.2) brightness(0.4) blur(1px);
+}
+
+.layer-1 {
+    width: 140%;
+    margin-bottom: 0;
+    filter: grayscale(100%) contrast(1.2) brightness(0.7);
+    /* Brightest foreground layer */
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .workforce-stats-section {
+        min-height: 600px;
+    }
+
+    .silhouettes-wrapper {
+        height: 50%;
+        bottom: -5%;
+    }
+
+    /* Make the images fit narrower screens better */
+    .silhouette-layer {
+        width: 250%;
+        /* Stretch them wider on mobile to ensure coverage */
+    }
+
+    .workforce-content {
+        padding-bottom: 80px;
+        /* Lift text slightly more on small screens */
+    }
+}
+
+/* Stats Bar at the bottom */
+.workforce-stats-bar-wrapper {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 20;
+    /* Keep above silhouettes */
+    display: flex;
+    justify-content: center;
+    padding-bottom: 40px;
+    /* Space from very bottom */
+}
+
+.workforce-stats-bar {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 20px;
+}
+
+.workforce-stat-card {
+    background: var(--white);
+    padding: 30px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.workforce-stat-card:hover {
+    transform: translateY(-5px);
+}
+
+.workforce-stat-icon {
+    width: 50px;
+    height: 50px;
+    background-color: rgba(212, 175, 55, 0.1);
+    /* Original gold/sand tint */
+    color: var(--secondary);
+    /* Original gold/sand color */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.workforce-stat-info h3 {
+    font-size: 1.8rem;
+    margin: 0;
+    color: var(--primary);
+    /* Deep navy for the text usually */
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+}
+
+.workforce-stat-info p {
+    margin: 0;
+    color: #64748b;
+    /* Text muted */
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+/* Mobile Responsiveness for Stats Bar */
+@media (max-width: 1200px) {
+    .workforce-stats-bar {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .workforce-stats-bar {
+        grid-template-columns: 1fr;
+    }
+
+    .workforce-stats-bar-wrapper {
+        position: relative;
+        margin-top: 40px;
+    }
+
+    .workforce-stats-section {
+        min-height: auto;
+        padding-bottom: 40px;
+        height: auto;
+    }
+}

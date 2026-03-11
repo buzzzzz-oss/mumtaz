@@ -1,0 +1,352 @@
+.divisions-section {
+    width: 100%;
+    height: 100vh;
+    background-color: #000c14;
+    /* Matches the dark navy / azure gradient theme */
+    background: linear-gradient(135deg, #000810 0%, #001f3f 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+    /* Optional edge shadow to blend seamlessly from the map */
+    box-shadow: inset 0 20px 40px rgba(0, 0, 0, 0.5);
+    z-index: 3;
+}
+
+.divisions-container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    gap: 2px;
+    /* Super thin seamless separator effect */
+    background-color: rgba(255, 255, 255, 0.05);
+    /* Creates the thin border between them naturally */
+}
+
+/* Individual Panel Setup */
+.division-panel {
+    flex: 1;
+    /* Equal thirds by default */
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    transition: flex 0.7s cubic-bezier(0.25, 1, 0.25, 1);
+    cursor: pointer;
+}
+
+/* Base background overlay so content is readable */
+.division-panel::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 10, 25, 0.6);
+    z-index: 2;
+    transition: background 0.7s ease;
+}
+
+/* Hover Interaction Engine */
+.divisions-container:hover .division-panel {
+    flex: 0.8;
+    /* Shrink all panels slightly when hovering the container */
+}
+
+.divisions-container:hover .division-panel:hover {
+    flex: 1.4;
+    /* Expand the hovered panel significantly but smoothly */
+}
+
+/* Darken non-hovered panels slightly to draw focus */
+.divisions-container:hover .division-panel:not(:hover)::before {
+    background: rgba(0, 5, 15, 0.85);
+}
+
+.divisions-container:hover .division-panel:hover::before {
+    background: rgba(0, 15, 35, 0.3);
+}
+
+/* Content Styling */
+.panel-content {
+    position: relative;
+    z-index: 3;
+    text-align: center;
+    padding: 0 40px;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.division-title {
+    color: #ffffff;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: clamp(1.8rem, 3vw, 2.8rem);
+    letter-spacing: -0.5px;
+    margin-bottom: 20px;
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.25, 1);
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.division-desc {
+    color: rgba(255, 255, 255, 0.7);
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(1rem, 1.2vw, 1.2rem);
+    line-height: 1.6;
+    margin: 0;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s cubic-bezier(0.25, 1, 0.25, 1);
+}
+
+/* Content Animations on Hover */
+.division-panel:hover .division-title {
+    transform: translateY(-10px);
+    color: #2ed573;
+    /* Emerald accent consistent with map section */
+}
+
+.division-panel:hover .division-desc {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.division-explore-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 30px;
+    padding: 12px 36px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 50px;
+    /* Pill shape */
+    background: rgba(255, 255, 255, 0.05);
+    /* Slight fill */
+    backdrop-filter: blur(8px);
+    /* Optional premium blur */
+    -webkit-backdrop-filter: blur(8px);
+    color: #ffffff;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 3px;
+    text-decoration: none;
+    text-transform: uppercase;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s cubic-bezier(0.25, 1, 0.25, 1);
+}
+
+.division-panel:hover .division-explore-btn {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.1s;
+    /* Stagger appearance slightly after description */
+}
+
+.division-explore-btn:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.8);
+}
+
+.explore-icon {
+    transition: transform 0.3s ease;
+}
+
+.division-explore-btn:hover .explore-icon {
+    transform: translate(2px, -2px);
+    /* Hop the arrow */
+}
+
+/* =======================================================
+   PANEL MICRO-ANIMATIONS 
+   ======================================================= */
+
+.panel-micro-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    opacity: 0.15;
+    transition: opacity 0.7s ease;
+}
+
+.division-panel:hover .panel-micro-bg {
+    opacity: 0.4;
+    /* Enhance visibility of animation on hover */
+}
+
+/* 1. Pest Control: Moving Grid Pattern */
+.panel-pest .panel-micro-bg {
+    background-size: 50px 50px;
+    background-image:
+        linear-gradient(rgba(46, 213, 115, 0.3) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(46, 213, 115, 0.3) 1px, transparent 1px);
+    background-position: 0 0;
+    animation: gridMove 20s linear infinite;
+}
+
+@keyframes gridMove {
+    0% {
+        background-position: 0 0;
+    }
+
+    100% {
+        background-position: 50px 50px;
+    }
+}
+
+/* 2. Cleaning Services: Sweeping Light Reflection */
+.panel-cleaning .panel-micro-bg {
+    background: linear-gradient(135deg,
+            transparent 0%,
+            transparent 40%,
+            rgba(255, 255, 255, 0.08) 45%,
+            rgba(255, 255, 255, 0.4) 50%,
+            rgba(255, 255, 255, 0.08) 55%,
+            transparent 60%,
+            transparent 100%);
+    background-size: 300% 300%;
+    animation: lightSweep 8s cubic-bezier(0.4, 0.0, 0.2, 1) infinite;
+}
+
+@keyframes lightSweep {
+    0% {
+        background-position: 150% 150%;
+    }
+
+    50% {
+        background-position: -50% -50%;
+    }
+
+    100% {
+        background-position: 150% 150%;
+    }
+}
+
+/* 3. Facilities Management: Fading Blueprint Lines */
+.panel-facilities .panel-micro-bg::before,
+.panel-facilities .panel-micro-bg::after {
+    content: '';
+    position: absolute;
+    background: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
+}
+
+/* Vertical drawing line */
+.panel-facilities .panel-micro-bg::before {
+    width: 1px;
+    height: 100%;
+    left: 20%;
+    top: 0;
+    animation: drawVertical 6s ease-in-out infinite alternate;
+}
+
+/* Horizontal drawing line */
+.panel-facilities .panel-micro-bg::after {
+    height: 1px;
+    width: 100%;
+    top: 70%;
+    left: 0;
+    animation: drawHorizontal 8s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes drawVertical {
+    0% {
+        height: 0%;
+        opacity: 0;
+        left: 20%;
+    }
+
+    30% {
+        height: 100%;
+        opacity: 0.5;
+        left: 20%;
+    }
+
+    60% {
+        height: 100%;
+        opacity: 0;
+        left: 80%;
+    }
+
+    100% {
+        height: 100%;
+        opacity: 0.5;
+        left: 80%;
+    }
+}
+
+@keyframes drawHorizontal {
+    0% {
+        width: 0%;
+        opacity: 0;
+        top: 70%;
+    }
+
+    30% {
+        width: 100%;
+        opacity: 0.5;
+        top: 70%;
+    }
+
+    60% {
+        width: 100%;
+        opacity: 0;
+        top: 30%;
+    }
+
+    100% {
+        width: 100%;
+        opacity: 0.5;
+        top: 30%;
+    }
+}
+
+/* Mobile Fallbacks (Stack gracefully instead of shrinking sideways) */
+@media (max-width: 992px) {
+    .divisions-section {
+        height: auto;
+        min-height: 100vh;
+    }
+
+    .divisions-container {
+        flex-direction: column;
+    }
+
+    .division-panel {
+        height: 33.33vh;
+        min-height: 300px;
+    }
+
+    /* Disable the flex hover trick on mobile */
+    .divisions-container:hover .division-panel {
+        flex: 1;
+    }
+
+    .divisions-container:hover .division-panel:hover {
+        flex: 1;
+    }
+
+    /* Always show description on mobile since hover doesn't exist */
+    .division-desc {
+        opacity: 0.8;
+        transform: translateY(0);
+        margin-top: 10px;
+    }
+
+    .division-title {
+        color: #2ed573;
+    }
+
+    .division-explore-btn {
+        opacity: 1;
+        transform: translateY(0);
+        margin-top: 15px;
+    }
+}

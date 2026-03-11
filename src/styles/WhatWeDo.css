@@ -1,0 +1,314 @@
+.wwd-page {
+    background-color: var(--white);
+    min-height: 100vh;
+}
+
+.wwd-page .wwd-hero {
+    height: 50vh;
+    display: flex;
+    align-items: center;
+    color: var(--white);
+    position: relative;
+    margin-top: -85px;
+    background-image: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1920');
+    background-size: cover;
+    background-position: center;
+}
+
+.wwd-page .wwd-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(0, 33, 71, 0.9), rgba(0, 33, 71, 0.6));
+}
+
+.wwd-page .wwd-hero h1 {
+    font-size: 4rem;
+    margin-bottom: 10px;
+    position: relative;
+    z-index: 10;
+    color: var(--secondary);
+}
+
+.wwd-page .wwd-hero p {
+    font-size: 1.25rem;
+    opacity: 0.9;
+    position: relative;
+    z-index: 10;
+}
+
+.wwd-content-wrapper {
+    padding-top: 100px;
+}
+
+.wwd-tabs-container {
+    max-width: 1000px;
+    margin: 0 auto 60px;
+    display: flex;
+    justify-content: center;
+}
+
+.wwd-tabs {
+    display: flex;
+    background-color: #f7f9fc;
+    border-radius: 50px;
+    padding: 5px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.wwd-tab {
+    padding: 15px 40px;
+    border-radius: 50px;
+    font-weight: 500;
+    font-size: 1rem;
+    color: var(--primary);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.wwd-tab.active {
+    background-color: var(--secondary);
+    /* Bright red-orange from screenshot */
+    color: white;
+    box-shadow: 0 4px 15px rgba(255, 71, 71, 0.4);
+}
+
+.wwd-content-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px 80px;
+}
+
+.wwd-tab-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.wwd-image-area {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1;
+    max-width: 550px;
+    margin: 0 auto;
+}
+
+.wwd-main-circle {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid rgba(255, 71, 71, 0.3);
+}
+
+.wwd-main-circle img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.wwd-main-circle::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    right: 20px;
+    bottom: 20px;
+    border: 1px solid rgba(0, 33, 71, 0.2);
+    border-radius: 50%;
+    z-index: -1;
+}
+
+.wwd-logo-circle {
+    position: absolute;
+    top: 50px;
+    right: 0;
+    width: 180px;
+    height: 180px;
+    background-color: var(--primary);
+    border-radius: 50%;
+    border: 8px solid white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transform: translateX(20%);
+    text-align: center;
+}
+
+.wwd-circle-logo {
+    width: 120px;
+    height: auto;
+    object-fit: contain;
+    margin-bottom: 5px;
+    mix-blend-mode: lighten;
+}
+
+.wwd-logo-circle span {
+    color: var(--secondary);
+    font-size: 1.5rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    font-family: var(--font-headline);
+}
+
+.wwd-logo-circle span.text-env {
+    font-size: 1.15rem;
+    letter-spacing: 0.5px;
+}
+
+.wwd-text-area {
+    padding-left: 20px;
+}
+
+.wwd-subtitle {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 25px;
+    font-family: var(--font-headline);
+    text-transform: uppercase;
+    line-height: 1.1;
+}
+
+.wwd-description {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 40px;
+}
+
+.wwd-btn-learn-more {
+    display: inline-flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px 35px;
+    background: transparent;
+    color: var(--secondary);
+    border: 2px solid var(--secondary);
+    border-radius: 8px;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 0.95rem;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.wwd-btn-learn-more:hover {
+    background-color: var(--secondary);
+    color: white;
+    box-shadow: 0 5px 15px rgba(255, 71, 71, 0.3);
+}
+
+.wwd-btn-learn-more:hover svg path {
+    stroke: white;
+}
+
+@media (max-width: 992px) {
+    .wwd-tab-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 40px;
+    }
+
+    .wwd-text-area {
+        padding-left: 0;
+    }
+
+    .wwd-logo-circle {
+        transform: translate(20px, -20px);
+        width: 140px;
+        height: 140px;
+        top: 20px;
+        right: 20px;
+    }
+
+    .wwd-logo-circle h3,
+    .wwd-logo-circle span {
+        font-size: 1.1rem;
+    }
+
+    .wwd-logo-circle span.text-env {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .wwd-tabs {
+        flex-direction: column;
+        background-color: transparent;
+        box-shadow: none;
+        gap: 10px;
+        width: 100%;
+        padding: 0 20px;
+    }
+
+    .wwd-tab {
+        width: 100%;
+        background-color: #f7f9fc;
+        text-align: center;
+    }
+
+    .wwd-subtitle {
+        font-size: 2.5rem;
+    }
+}
+
+/* Supplemental styles for dedicated pages */
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 500;
+    margin-bottom: 20px;
+    transition: color 0.3s;
+}
+
+.back-link:hover {
+    color: var(--secondary);
+}
+
+.features-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.feature-icon {
+    width: 25px;
+    height: 25px;
+    background-color: var(--secondary);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    flex-shrink: 0;
+}
+
+.feature-item span {
+    font-size: 1.1rem;
+    color: var(--primary);
+    font-weight: 500;
+}

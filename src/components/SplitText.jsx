@@ -160,9 +160,7 @@ const SplitText = ({
         const Tag = tag || 'p';
 
         return (
-            <Tag ref={ref} style={style} className={classes}>
-                {text}
-            </Tag>
+            <Tag ref={ref} style={style} className={classes} aria-label={text} />
         );
     };
     return renderTag();

@@ -1,0 +1,337 @@
+:root {
+    --sector-bg-color: #f8f9fa;
+    --sector-card-bg: #ffffff;
+    --sector-text-dark: #212529;
+    --sector-text-muted: #6c757d;
+    /* Using a generic elegant navy corporate color */
+    --sector-accent: #0f2b4c;
+    --sector-featured-gradient: linear-gradient(135deg, #0f2b4c 0%, #1a4b86 100%);
+    --sector-hover-shadow: rgba(0, 0, 0, 0.12) 0px 10px 30px;
+}
+
+.sectors-page {
+    position: relative;
+    background-color: var(--sector-bg-color);
+    color: var(--sector-text-dark);
+    padding-bottom: 6rem;
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+    /* Clean modern styling */
+    overflow: hidden;
+}
+
+/* Subtle Parallax Background Effect */
+.sectors-bg-pattern {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        radial-gradient(circle at 15% 50%, rgba(15, 43, 76, 0.03) 0%, transparent 50%),
+        radial-gradient(circle at 85% 30%, rgba(15, 43, 76, 0.03) 0%, transparent 50%);
+    z-index: 0;
+    animation: bgFloat 15s infinite alternate ease-in-out;
+}
+
+@keyframes bgFloat {
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(20px);
+    }
+}
+
+.sectors-header {
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-top: -85px;
+    margin-bottom: 4rem;
+    background-image: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1920');
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    z-index: 1;
+}
+
+.sectors-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(15, 43, 76, 0.75);
+    z-index: 0;
+}
+
+.sectors-header .container {
+    position: relative;
+    z-index: 10;
+    padding: 0 2rem;
+}
+
+.sectors-header h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: var(--secondary);
+    /* Gold font color */
+    margin-bottom: 1rem;
+    letter-spacing: -0.5px;
+}
+
+.sectors-header p {
+    font-size: 1.25rem;
+    color: #ffffff;
+    opacity: 0.9;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.sectors-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+/* Animation Base (Fade-in stagger on load) */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+.featured-sector.fade-in {
+    animation-delay: 0.1s;
+    /* Loads first */
+}
+
+.standard-sectors.fade-in {
+    animation-delay: 0.3s;
+    /* Loads after featured */
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Featured Residential Sector Styling */
+.featured-sector {
+    margin-bottom: 3rem;
+}
+
+/* Highlight Requirement: Visually emphasized, larger card */
+.featured-sector-card {
+    position: relative;
+    background-color: var(--sector-accent);
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    border-radius: 16px;
+    padding: 4rem 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-end;
+    min-height: 400px;
+    box-shadow: rgba(15, 43, 76, 0.2) 0px 8px 24px;
+    transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+    overflow: hidden;
+    /* Accent glow effect */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sector-card-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(15, 43, 76, 0.95) 0%, rgba(15, 43, 76, 0.4) 50%, transparent 100%);
+    z-index: 1;
+    transition: background 0.4s ease;
+}
+
+.featured-sector-card:hover .sector-card-overlay {
+    background: linear-gradient(to top, rgba(15, 43, 76, 0.98) 0%, rgba(15, 43, 76, 0.6) 60%, rgba(0, 0, 0, 0.2) 100%);
+}
+
+/* Smooth hover animation (slight lift + glow + scale) */
+.featured-sector-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: rgba(15, 43, 76, 0.3) 0px 15px 40px;
+}
+
+.featured-badge {
+    background-color: var(--secondary);
+    color: #fff;
+    padding: 0.5rem 1.2rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    margin-bottom: auto;
+    /* Pushes content down */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    z-index: 2;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    /* Subtle animated highlight pulse */
+    animation: pulseBadge 2s infinite cubic-bezier(0.4, 0, 0.6, 1);
+}
+
+@keyframes pulseBadge {
+
+    0%,
+    100% {
+        opacity: 1;
+        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4);
+    }
+
+    50% {
+        opacity: 0.9;
+        box-shadow: 0 0 0 8px rgba(255, 255, 255, 0);
+    }
+}
+
+.featured-content {
+    max-width: 800px;
+    position: relative;
+    z-index: 2;
+}
+
+.featured-sector-card h2 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--secondary);
+    /* Applied gold font as requested */
+}
+
+.featured-sector-card p {
+    font-size: 1.15rem;
+    line-height: 1.6;
+    opacity: 0.9;
+}
+
+
+/* Standard Sectors Grid */
+.all-sectors-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    align-items: stretch;
+}
+
+/* Individual Card Styling */
+.sector-card {
+    background-color: var(--sector-accent);
+    background-size: cover;
+    background-position: center;
+    border-radius: 12px;
+    padding: 2.5rem 2rem;
+    transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+    /* Soft shadow depth */
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 30px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    min-height: 380px;
+    opacity: 0;
+    /* Base state for Scroll Observer */
+    transform: translateY(20px);
+    position: relative;
+    overflow: hidden;
+    text-decoration: none;
+    cursor: default;
+}
+
+/* Class applied by IntersectionObserver */
+.sector-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.sector-card:hover {
+    /* Smooth hover animation */
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: rgba(15, 43, 76, 0.4) 0px 20px 40px;
+    z-index: 2;
+    /* Bring to front on hover */
+}
+
+.sector-card:hover .sector-card-overlay {
+    background: linear-gradient(to top, rgba(15, 43, 76, 0.95) 0%, rgba(15, 43, 76, 0.7) 60%, rgba(0, 0, 0, 0.1) 100%);
+}
+
+.sector-card-content {
+    position: relative;
+    z-index: 2;
+}
+
+.sector-card h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--secondary);
+    /* Applied gold font as requested */
+    margin-bottom: 0.8rem;
+    line-height: 1.2;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.sector-card p {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+    .all-sectors-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .sectors-page {
+        padding-bottom: 4rem;
+    }
+
+    .sectors-container {
+        padding: 0 1.5rem;
+    }
+
+    .sectors-header h1 {
+        font-size: 2.5rem;
+    }
+
+    .featured-sector-card {
+        padding: 2rem;
+    }
+
+    .featured-sector-card h2 {
+        font-size: 1.8rem;
+    }
+
+    .all-sectors-grid {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+    }
+}

@@ -288,7 +288,7 @@
     color: var(--white);
     font-size: 1.5rem;
     margin-bottom: 15px;
-    font-family: 'Outfit', sans-serif;
+    font-family: var(--font-headline);
     text-transform: uppercase;
     letter-spacing: 1px;
     line-height: 1.3;
@@ -393,7 +393,7 @@
 
 /* Why Choose Us */
 .why-us {
-    background-color: var(--white);
+    background-color: var(--primary-light);
 }
 
 .why-us-grid {
@@ -412,6 +412,7 @@
 
 .why-us-content h2 {
     font-size: 2.5rem;
+    color: var(--white);
     margin-bottom: 25px;
 }
 
@@ -425,6 +426,7 @@
     gap: 12px;
     margin-bottom: 15px;
     font-weight: 500;
+    color: var(--white);
 }
 
 .benefits-list .icon {
@@ -701,7 +703,7 @@
     line-height: 1.1;
     margin: 0;
     text-transform: uppercase;
-    font-family: 'Outfit', sans-serif;
+    font-family: var(--font-headline);
     font-weight: 700;
 }
 
@@ -775,7 +777,7 @@
 
 /* Brand Architecture */
 .brand-architecture {
-    background-color: var(--white);
+    background-color: var(--primary-light);
 }
 
 .architecture-header {
@@ -804,7 +806,7 @@
     background: var(--bg);
     border-radius: 10px;
     overflow: hidden;
-    box-shadow: var(--shadow);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     transition: var(--transition);
     display: flex;
     flex-direction: column;
@@ -816,8 +818,8 @@
 
 .image-gap {
     height: 250px;
-    background-color: #e2e8f0;
-    /* Light gray placeholder for the gap */
+    background-color: rgba(0, 0, 0, 0.05);
+    /* Light placeholder for the gap */
     width: 100%;
 }
 
@@ -959,7 +961,6 @@
     margin: 0;
     font-size: 1.1rem;
     color: var(--white);
-    font-family: 'Inter', sans-serif;
     font-weight: 600;
     max-width: 80%;
     text-transform: uppercase;
